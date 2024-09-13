@@ -8,7 +8,7 @@ txtvar: StringVar = StringVar()
 
 arr: list = []
 
-def main() -> None:
+def click() -> None:
     n: int = int(txtvar.get())
     sl = ""
     for i in range(n):
@@ -16,13 +16,20 @@ def main() -> None:
         sl: str = sl + str(arr[i]) + ''
         messagebox.showinfo(f'Результат: {sl}')
 
-label: Label = Label(text='Введіть кількість елементів:')
-label.pack()
+def main() -> None:
+    label: Label = Label(text='Введіть кількість елементів:')
+    label.pack()
 
-entry: Entry = Entry(root, textvariable=txtvar)
-entry.pack()
+    entry: Entry = Entry(root, textvariable=txtvar)
+    entry.pack()
 
-btn: Button = Button(text='Розпочати', command=main)
-btn.pack()
+    btn: Button = Button(text='Розпочати', command=click)
+    btn.pack()
 
-root.mainloop()
+    root.mainloop()
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        print(e)

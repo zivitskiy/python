@@ -6,19 +6,23 @@ txtvar: StringVar = StringVar()
 
 arr: list = []
 
-def main() -> None:
+def click() -> None:
     usr: int = int(txtvar.get())
     for _ in range(usr):
         arr.append(usr)
         print(arr)
 
-label: Label= Label(text='Введіть кількість елементів:')
-label.pack()
+def main() -> None:
+    label: Label= Label(text='Введіть кількість елементів:')
+    label.pack()
 
-entry: Entry = Entry(root, textvariable=txtvar)
-entry.pack()
+    entry: Entry = Entry(root, textvariable=txtvar)
+    entry.pack()
 
-btn: Button = Button(root, text='Розпочати введення', command=main)
-btn.pack()
+    btn: Button = Button(root, text='Розпочати введення', command=click)
+    btn.pack()
 
-root.mainloop()
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
